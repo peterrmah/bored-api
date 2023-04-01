@@ -1,0 +1,21 @@
+{
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "cSpell.enabled": true,
+  "editor.foldingImportsByDefault": true,
+  "files.exclude": {
+    "tsconfig.build.json": true
+  },
+  "files.trimTrailingWhitespace": true,
+  "editor.formatOnSave": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
+  "editor.tabSize": 2,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  }
+}
