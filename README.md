@@ -74,14 +74,22 @@ where:
 Example Response:
 
     {
-      "id": "b65c3d0b-ceda-4f75-a8c9-3416fe0178e5",
+      "id": 3304,
       "name": "Jimothy Shrute",
       "accessibility": "High",
       "price": "Free",
-      "created_at": "2023-04-01T03:23:29.383Z"
+      "created_date": "2023-04-01T03:23:29.383Z"
     }
 
 where:
 
 - **id**: User's unique ID
 - **created_at**: Datetime stamp in which the user entity was created (in ISO-8601 format)
+
+## Database
+
+Considering the current scope of this system, the data requiring storage can be organized in a single entity type. Choice of saving the data in a relational database rather than another database type (e.g. document database) was arbitrary under the current known scope. However, a relational database may be a good design choice as scope and therefore complexity grows.
+
+### Entity Relationship Diagram
+
+![alt text](database/entity-relationship-diagram.png)
