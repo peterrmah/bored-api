@@ -90,7 +90,7 @@ Considering the current scope of this system, the data requiring storage can be 
 
 ### Entity Relationship Diagram
 
-![alt text](database/entity-relationship-diagram.png)
+![alt text](server/planning/entity-relationship-diagram.png)
 
 ## Resources
 
