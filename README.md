@@ -1,10 +1,8 @@
 # Activity Suggestor
 
-## API Description
+## API Overview
 
-The API does ...........
-
-## API Base URL
+The primary motivation of the Activity Suggestor API is to provide suggestions for activities a person(s) might perform in the event they are bored.
 
 All URLs in the reference documentation use the following base URL:
 
@@ -12,11 +10,11 @@ All URLs in the reference documentation use the following base URL:
 
 ## API Resources
 
-See API docs (/api/docs) for more information
+See API docs (/api/docs) for detailed API documentation
 
 ### Activity (`/activity`)
 
-An **activity** object is a suggested activity a client might perform in the event they are bored. The activity object consists of a set of properties describing some relevant details about the activity.
+The **activity** resource is the primary resource of the API, representing a suggested activity a client might perform in the event they are bored. The activity object consists of a set of properties describing some relevant details about the activity suggested.
 
 #### GET - Retrieving an activity
 
@@ -93,3 +91,7 @@ Considering the current scope of this system, the data requiring storage can be 
 ### Entity Relationship Diagram
 
 ![alt text](database/entity-relationship-diagram.png)
+
+## Resources
+
+- [Bored API](https://www.boredapi.com/)
