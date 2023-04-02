@@ -1,9 +1,10 @@
 import { Connection, createConnection } from "typeorm";
 
-export async function DatabaseConnectionLoader (
-): Promise<Connection> {
+import Logger from "../utils/logger";
+
+export async function DatabaseConnectionLoader(): Promise<Connection> {
   const connection: Connection = await createConnection();
-  console.log("[database] connected", connection.name);
+  Logger.log(`[database] connected ${connection.name}`);
 
   return connection;
 }
