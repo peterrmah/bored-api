@@ -1,36 +1,48 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
-    },
-    "extends": [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended"
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["google", "prettier"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint", "eslint-plugin-import", "jsdoc", "unused-imports", "unicorn"],
+  "rules": {
+    "unicorn/prefer-node-protocol": "warn",
+    "require-await": "error",
+    // https://www.npmjs.com/package/eslint-plugin-unused-imports
+    "@typescript-eslint/no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
     ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaVersion": "latest",
-        "sourceType": "module"
-    },
-    "plugins": [
-        "@typescript-eslint"
+    // Prefer array type [] over use of generic Array<T>
+    "@typescript-eslint/array-type": "error",
+    "new-cap": [
+      "error",
+      {
+        // Allow function names to start with Capital letter
+        "capIsNew": false
+      }
     ],
-    "rules": {
-        "indent": [
-            "error",
-            2
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "error",
-            "double"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ]
-    }
+    "import/no-cycle": ["error", { "ignoreExternal": true }],
+    "require-jsdoc": "off",
+    "valid-jsdoc": 0,
+    "jsdoc/implements-on-classes": 2, // Recommended
+    "jsdoc/newline-after-description": 2, // Recommended
+    "jsdoc/no-types": 2,
+    "jsdoc/require-asterisk-prefix": 2,
+    "jsdoc/require-description": 2,
+    "jsdoc/require-hyphen-before-param-description": 2,
+    "jsdoc/require-param": 2, // Recommended
+    "jsdoc/require-param-description": 2, // Recommended
+    "jsdoc/require-param-name": 2,
+    "jsdoc/require-param-type": 0, // Recommended
+    "jsdoc/require-returns": 2, // Recommended
+    "jsdoc/require-returns-type": 0 // Recommended
+  }
 }
