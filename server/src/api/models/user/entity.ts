@@ -2,8 +2,8 @@ import { IsDate, IsEnum, IsString, IsUUID } from "class-validator";
 import { BaseEntity, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
 import { AccessibilityLevel, PriceLevel } from "./types";
 
-@Entity("activities")
-export class Activity extends BaseEntity {
+@Entity("users")
+export class User extends BaseEntity {
   /**
    * Auto-generated primary key
    */
