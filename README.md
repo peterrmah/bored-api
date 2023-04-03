@@ -57,7 +57,7 @@ Request:
     - Body:
       {
         "name": string,
-        "accessibility": "High" | "Medium" | "Low",
+        "accessibility": "Low" | "Medium" | "High",
         "price": "Free" | "Low" | "High"
       }
 
