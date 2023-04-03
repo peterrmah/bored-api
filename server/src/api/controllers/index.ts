@@ -1,1 +1,1 @@
-export * from "./activity/activity";
+export * from "./activity/controller";

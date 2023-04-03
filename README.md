@@ -10,8 +10,6 @@ All URLs in the reference documentation use the following base URL:
 
 ## API Resources
 
-See API docs (/api/docs) for detailed API documentation
-
 ### Activity (`/activity`)
 
 The **activity** resource is the primary resource of the API, representing a suggested activity a client might perform in the event they are bored. The activity object consists of a set of properties describing some relevant details about the activity suggested.
