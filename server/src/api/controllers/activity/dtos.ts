@@ -1,4 +1,4 @@
-import { AccessibilityLevel, PriceLevel } from "../../models/user/types";
+import { AccessibilityLevel, PriceLevel } from "../../../database/models/user/types";
 
 export class ActivityResourceDTO {
   constructor(
