@@ -1,4 +1,5 @@
 import { BaseEntity, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
+
 import { AccessibilityLevel, PriceLevel } from "./types";
 
 @Entity("users")

@@ -1,8 +1,14 @@
 import { Get, JsonController } from "routing-controllers";
 
 import { ActivityService } from "../../services/activity/service";
-import { Accessibility, ActivityResourceDTO, Price } from "./dtos";
+import { ActivityResourceDTO } from "./dtos";
 import { ROUTES } from "../routes";
+import {
+  AccessibilityManager,
+  ActivityErrorResponse,
+  ActivityResponse,
+  PriceManager,
+} from "../../../adapters/bored-api/activity-service";
 
 @JsonController(ROUTES.ACTIVITY)
 export class ActivityController {
@@ -13,14 +19,19 @@ export class ActivityController {
    * @returns An activity recommendation
    */
   @Get()
-  async get(): Promise<ActivityResourceDTO> {
-    const response = await ActivityService.getSuggestion();
+  async get(): Promise<ActivityResourceDTO | ActivityErrorResponse> {
+    const untypedResponse = await ActivityService.getSuggestion();
+    if ((untypedResponse as ActivityErrorResponse).error)
+      return untypedResponse as ActivityErrorResponse;
+    const response = untypedResponse as ActivityResponse;
     return new ActivityResourceDTO(
       response.activity,
-      new Accessibility(response.accessibility),
+      new AccessibilityManager(),
+      response.accessibility,
       response.type,
       response.participants,
-      new Price(response.price),
+      new PriceManager(),
+      response.price,
       response.key,
       response.link,
     );
