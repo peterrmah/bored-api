@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import { AccessibilityLevel, PriceLevel } from "../../database/models/user/types";
 import { ACTIVITY_RESOURCE_PATH, BORED_API_BASE_URL } from "./routes";
 

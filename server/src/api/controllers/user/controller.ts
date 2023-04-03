@@ -1,7 +1,7 @@
 import { Body, JsonController, Post } from "routing-controllers";
 import { EntityManager, Transaction, TransactionManager } from "typeorm";
-import { UserService } from "../../services/user/service";
 
+import { UserService } from "../../services/user/service";
 import { ROUTES } from "../routes";
 import { UserResourceDTO } from "./dtos";
 import { CreateUserBody } from "./types";

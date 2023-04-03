@@ -1,4 +1,5 @@
 import { IsEnum, IsString } from "class-validator";
+
 import { AccessibilityLevel, PriceLevel } from "../../../database/models/user/types";
 
 export class CreateUserBody {
