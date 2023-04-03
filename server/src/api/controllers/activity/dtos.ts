@@ -1,4 +1,3 @@
-import { IsEnum, IsNumber, IsOptional, IsString } from "class-validator";
 import { AccessibilityLevel, PriceLevel } from "../../models/user/types";
 
 export class ActivityResourceDTO {
@@ -20,26 +19,18 @@ export class ActivityResourceDTO {
     if (link) this.link = link;
   }
 
-  @IsString() // Class validators on DTO used by OpenAPI generation
   activity: string;
 
-  @IsEnum(AccessibilityLevel)
   accessibility: AccessibilityLevel;
 
-  @IsString()
   type: string;
 
-  @IsNumber()
   participants: number;
 
-  @IsEnum(PriceLevel)
   price: PriceLevel;
 
-  @IsString()
   key: string;
 
-  @IsString()
-  @IsOptional()
   link?: string;
 }
 
