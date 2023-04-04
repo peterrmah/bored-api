@@ -186,7 +186,7 @@ export class AccessibilityManager implements LevellablePropertyManager<Accessibi
   valueToLevel(value: number): AccessibilityLevel {
     let level: AccessibilityLevel;
     switch (true) {
-      case value <= 0.25:
+      case value >= 0 && value <= 0.25:
         level = AccessibilityLevel.HIGH;
         break;
 
