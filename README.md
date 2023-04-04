@@ -26,7 +26,7 @@ All URLs in the reference documentation use the following base URL:
 
 1. **Bring up MySQL server**
 
-   Start MySQL server running in Docker in the background
+   Start MySQL server running in Docker in the background exposed on port 3306
 
    ```bash
    docker compose up -d
@@ -42,7 +42,7 @@ All URLs in the reference documentation use the following base URL:
 
 3. **Bring up Express server**
 
-   Run Express server locally in dev mode
+   Run Express server locally in dev mode exposed on port 3000
 
    ```bash
    yarn dev
