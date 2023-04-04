@@ -92,13 +92,11 @@ export class ActivityAdapterService {
       };
     }
 
-    const axiosResponse = await axios({
-      url: ActivityAdapterService.baseResourcePath,
-      method: "GET",
+    const response = await axios.get(ActivityAdapterService.baseResourcePath, {
       params: searchParams,
     });
     // Bored API always returns 200 response with error prop in response body
-    return axiosResponse.data as ActivityResponse | ActivityErrorResponse;
+    return response.data as ActivityResponse | ActivityErrorResponse;
   }
 }
 

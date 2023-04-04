@@ -1,8 +1,48 @@
+import mockAxios from "jest-mock-axios";
+
 import {
   AccessibilityManager,
+  ActivityAdapterService,
   PriceManager,
 } from "../../../../adapters/bored-api/activity-service";
 import { AccessibilityLevel, PriceLevel } from "../../../../database/models/user/types";
+import { mockAxiosGetActivitySuccessData, validSearchParams } from "./mock-data.json";
+
+describe("ActivityAdapterService", () => {
+  describe("Retrieve successful recommendation", () => {
+    afterEach(() => {
+      mockAxios.reset();
+    });
+
+    test("No provided search params makes http call without search params", async () => {
+      mockAxios.get.mockResolvedValueOnce(mockAxiosGetActivitySuccessData);
+
+      await ActivityAdapterService.getRecommendation();
+
+      expect(mockAxios.get).toHaveBeenCalledTimes(1);
+      expect(mockAxios.get).toHaveBeenCalledWith(ActivityAdapterService.baseResourcePath, {
+        params: undefined,
+      });
+    });
+
+    test("No provided search params makes http call with search params", async () => {
+      mockAxios.get.mockResolvedValueOnce(mockAxiosGetActivitySuccessData);
+
+      const params = validSearchParams;
+      await ActivityAdapterService.getRecommendation(params);
+
+      expect(mockAxios.get).toHaveBeenCalledTimes(1);
+      expect(mockAxios.get).toHaveBeenCalledWith(ActivityAdapterService.baseResourcePath, {
+        params: {
+          minprice: params.priceRange.min,
+          maxprice: params.priceRange.max,
+          minaccessibility: params.accessibilityRange.min,
+          maxaccessibility: params.accessibilityRange.max,
+        },
+      });
+    });
+  });
+});
 
 describe("PriceManager", () => {
   const priceManager = new PriceManager();
