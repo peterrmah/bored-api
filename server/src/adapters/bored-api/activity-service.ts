@@ -169,9 +169,6 @@ export class PriceManager implements LevellablePropertyManager<PriceLevel> {
         min = 0.6;
         max = 1;
         break;
-
-      default:
-        throw new Error("Invalid price level");
     }
     return {
       min,
@@ -219,9 +216,6 @@ export class AccessibilityManager implements LevellablePropertyManager<Accessibi
         min = 0.76;
         max = 1.0;
         break;
-
-      default:
-        throw new Error("Invalid accessibility level");
     }
     return {
       min,
