@@ -144,7 +144,7 @@ export class PriceManager implements LevellablePropertyManager<PriceLevel> {
         level = PriceLevel.LOW;
         break;
 
-      case value > 0.5:
+      case value > 0.5 && value <= 1:
         level = PriceLevel.HIGH;
         break;
 
@@ -194,7 +194,7 @@ export class AccessibilityManager implements LevellablePropertyManager<Accessibi
         level = AccessibilityLevel.MEDIUM;
         break;
 
-      case value > 0.75:
+      case value > 0.75 && value <= 1:
         level = AccessibilityLevel.LOW;
         break;
 
