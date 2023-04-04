@@ -8,6 +8,66 @@ All URLs in the reference documentation use the following base URL:
 
 `http://localhost:3000/api`
 
+## Getting Started
+
+### Requirements
+
+- [Docker](https://formulae.brew.sh/cask/docker)
+- [Node](https://formulae.brew.sh/formula/node)
+- [yarn](https://formulae.brew.sh/formula/yarn)
+
+### Running the Stack
+
+0. Navigate into /server directory
+
+   ```bash
+   cd server
+   ```
+
+1. **Bring up MySQL server**
+
+   Start MySQL server running in Docker in the background
+
+   ```bash
+   docker compose up -d
+   ```
+
+2. **Configure MySQL schema**
+
+   Apply the database migrations to the MySQL server
+
+   ```bash
+   yarn install && yarn migration:run
+   ```
+
+3. **Bring up Express server**
+
+   Run Express server locally in dev mode
+
+   ```bash
+   yarn dev
+   ```
+
+### Shutdown Stack
+
+1. **Kill Express Server**
+
+   In the terminal running the express server, kill the server by pressing `ctrl + c`
+
+2. **Kill Database**
+
+   Kill MySQL server running inside Docker container managed by Docker Compose
+
+   ```bash
+   docker compose down
+   ```
+
+   To optionally remove the created Docker volume used by the MySQL server
+
+   ```bash
+   docker compose down -v
+   ```
+
 ## API Resources
 
 ### Activity (`/activity`)
@@ -105,4 +165,6 @@ With more time, the following needs to be worked on:
 - More thorough validations on client input
 - Standardized error formatting thrown to client
 - OpenAPI spec & Swagger UI
+- Dockerize server & database and configure docker-compose stack
+- Prep envs for production deployment
 - Implement simple client-app to interact with the API
