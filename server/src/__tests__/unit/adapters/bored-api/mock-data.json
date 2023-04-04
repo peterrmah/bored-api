@@ -1,0 +1,23 @@
+{
+  "mockAxiosGetActivitySuccessData": {
+    "data": {
+      "activity": "Draw something interesting",
+      "type": "recreational",
+      "participants": 1,
+      "price": 0,
+      "link": "",
+      "key": "8033599",
+      "accessibility": 0
+    }
+  },
+  "validSearchParams": {
+    "priceRange": {
+      "min": 0,
+      "max": 0.5
+    },
+    "accessibilityRange": {
+      "min": 0,
+      "max": 0.5
+    }
+  }
+}

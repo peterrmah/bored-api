@@ -92,13 +92,11 @@ export class ActivityAdapterService {
       };
     }
 
-    const axiosResponse = await axios({
-      url: ActivityAdapterService.baseResourcePath,
-      method: "GET",
+    const response = await axios.get(ActivityAdapterService.baseResourcePath, {
       params: searchParams,
     });
     // Bored API always returns 200 response with error prop in response body
-    return axiosResponse.data as ActivityResponse | ActivityErrorResponse;
+    return response.data as ActivityResponse | ActivityErrorResponse;
   }
 }
 
@@ -144,7 +142,7 @@ export class PriceManager implements LevellablePropertyManager<PriceLevel> {
         level = PriceLevel.LOW;
         break;
 
-      case value > 0.5:
+      case value > 0.5 && value <= 1:
         level = PriceLevel.HIGH;
         break;
 
@@ -171,9 +169,6 @@ export class PriceManager implements LevellablePropertyManager<PriceLevel> {
         min = 0.6;
         max = 1;
         break;
-
-      default:
-        throw new Error("Invalid price level");
     }
     return {
       min,
@@ -186,7 +181,7 @@ export class AccessibilityManager implements LevellablePropertyManager<Accessibi
   valueToLevel(value: number): AccessibilityLevel {
     let level: AccessibilityLevel;
     switch (true) {
-      case value <= 0.25:
+      case value >= 0 && value <= 0.25:
         level = AccessibilityLevel.HIGH;
         break;
 
@@ -194,7 +189,7 @@ export class AccessibilityManager implements LevellablePropertyManager<Accessibi
         level = AccessibilityLevel.MEDIUM;
         break;
 
-      case value > 0.75:
+      case value > 0.75 && value <= 1:
         level = AccessibilityLevel.LOW;
         break;
 
@@ -221,9 +216,6 @@ export class AccessibilityManager implements LevellablePropertyManager<Accessibi
         min = 0.76;
         max = 1.0;
         break;
-
-      default:
-        throw new Error("Invalid accessibility level");
     }
     return {
       min,
