@@ -93,3 +93,16 @@ Considering the current scope of this system, the data requiring storage can be 
 ## Resources
 
 - [Bored API](https://www.boredapi.com/)
+
+## TODOs
+
+With more time, the following needs to be worked on:
+
+- Continue adding test coverage. API testing may be a good fit since the business logic is simple, but the end results sent to the client are really what matter
+- Refactor file organization in test folder
+- Create error objects for when Bored-API returns error
+- Better error logging
+- More thorough validations on client input
+- Standardized error formatting thrown to client
+- OpenAPI spec & Swagger UI
+- Implement simple client-app to interact with the API
